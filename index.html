@@ -1,29 +1,142 @@
-<div class="home-grid">
-  <div class="home-card card-g1" onclick="showScreen('exam')">
-    <div class="card-icon" style="background:linear-gradient(135deg,#1e40af,#3b82f6)"><i class="fas fa-file-alt text-white"></i></div>
-    <div class="card-label">Exam / Mock Test</div>
-  </div>
-  
-  <div class="home-card card-g2" onclick="showScreen('notes')">
-    <div class="card-icon" style="background:linear-gradient(135deg,#065f46,#10b981)"><i class="fas fa-book-open text-white"></i></div>
-    <div class="card-label">Study Notes</div>
-  </div>
+<!DOCTYPE html>
+<html lang="hi" data-theme="military">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operation Baaz — Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css"> </head>
+<body class="p-3 md:p-4">
 
-  <div class="home-card card-g4" onclick="showInfo('SSB Module','Coming Soon')">
-    <div class="card-icon" style="background:linear-gradient(135deg,#7c3aed,#5b21b6)"><i class="fas fa-chess-knight text-white"></i></div>
-    <div class="card-label">SSB Prep</div>
-    <div class="card-sub">WAT/SRT/OIR</div>
-  </div>
+    <header class="w-full text-center mb-6 relative">
+        <h1 class="text-3xl md:text-5xl font-black tracking-widest brand-gradient">OPERATION BAAZ</h1>
+        <p class="text-[10px] text-muted uppercase tracking-widest mt-1 font-semibold">Complete Defence Learning Platform</p>
+    </header>
 
-  <div class="home-card card-g7" onclick="showInfo('Medical Module','Coming Soon')">
-    <div class="card-icon" style="background:linear-gradient(135deg,#0891b2,#0e7490)"><i class="fas fa-stethoscope text-white"></i></div>
-    <div class="card-label">Medical Test</div>
-    <div class="card-sub">Eye/Physical</div>
-  </div>
+    <div id="auth-container" class="w-full max-w-md mx-auto pt-1">
+        <div class="premium-card rounded-2xl p-6 shadow-xl space-y-4">
+            <h2 class="text-lg font-black text-center text-accent"><i class="fas fa-shield-alt mr-1"></i> Secure Gateway</h2>
+            
+            <div class="space-y-3">
+                <input type="email" id="login-email" placeholder="Email Address" class="input-field">
+                <input type="password" id="login-password" placeholder="Password" class="input-field">
+                <button onclick="doLogin()" class="w-full btn-accent py-3 rounded-xl cursor-pointer shadow-lg flex justify-center gap-2">
+                    <i class="fas fa-unlock-alt mt-1"></i> Authenticate (Login)
+                </button>
+                <p id="login-error" class="hidden text-xs text-center font-bold text-red-500"></p>
+            </div>
+            
+            <button onclick="alert('Signup feature will be on a separate page or modal!')" class="w-full btn-neutral py-2 rounded-xl text-xs">New Soldier? Sign Up Here</button>
+        </div>
+    </div>
 
-  <div class="home-card card-g3" onclick="showScreen('profile')">
-    <div class="card-icon" style="background:linear-gradient(135deg,#991b1b,#ef4444)"><i class="fas fa-id-card text-white"></i></div>
-    <div class="card-label">My Profile</div>
-  </div>
-  
-  </div>
+    <div id="dashboard-container" class="hidden w-full max-w-5xl mx-auto space-y-4">
+        
+        <div class="premium-card rounded-2xl p-4 flex justify-between items-center">
+            <div>
+                <div class="font-black text-sm">Jai Hind, <span id="student-name" class="text-accent">Soldier</span></div>
+                <div class="text-[10px] text-muted font-bold"><i class="fas fa-coins text-amber-500"></i> <span id="wallet-balance-disp">0</span> Coins</div>
+            </div>
+            <button onclick="logout()" class="btn-danger-outline px-3 py-1.5 rounded-xl text-xs font-bold cursor-pointer">Logout</button>
+        </div>
+
+        <div class="home-grid">
+            <a href="exam.html" class="home-card card-g1">
+                <div class="text-3xl text-blue-400 mb-2"><i class="fas fa-file-alt"></i></div>
+                <div class="text-sm font-bold text-white">Mock Test</div>
+                <div class="text-[9px] text-gray-400 mt-1">Practice & Attempt</div>
+            </a>
+            
+            <a href="notes.html" class="home-card card-g2">
+                <div class="text-3xl text-emerald-400 mb-2"><i class="fas fa-book-open"></i></div>
+                <div class="text-sm font-bold text-white">Study Notes</div>
+                <div class="text-[9px] text-gray-400 mt-1">Read & Revise</div>
+            </a>
+
+            <a href="ssb.html" class="home-card card-g4">
+                <div class="text-3xl text-purple-400 mb-2"><i class="fas fa-chess-knight"></i></div>
+                <div class="text-sm font-bold text-white">SSB Prep</div>
+                <div class="text-[9px] text-gray-400 mt-1">WAT / SRT / OIR</div>
+            </a>
+
+            <a href="medical.html" class="home-card card-g5">
+                <div class="text-3xl text-cyan-400 mb-2"><i class="fas fa-stethoscope"></i></div>
+                <div class="text-sm font-bold text-white">Medical Test</div>
+                <div class="text-[9px] text-gray-400 mt-1">Eye / Physical</div>
+            </a>
+
+            <a href="profile.html" class="home-card card-g3">
+                <div class="text-3xl text-red-400 mb-2"><i class="fas fa-id-card"></i></div>
+                <div class="text-sm font-bold text-white">My Profile</div>
+            </a>
+
+            <a href="courses.html" class="home-card card-g6">
+                <div class="text-3xl text-amber-500 mb-2"><i class="fas fa-crown"></i></div>
+                <div class="text-sm font-bold text-white">Paid Classes</div>
+            </a>
+
+            <a href="ranking.html" class="home-card card-g7">
+                <div class="text-3xl text-indigo-400 mb-2"><i class="fas fa-trophy"></i></div>
+                <div class="text-sm font-bold text-white">Leaderboard</div>
+            </a>
+
+            <a href="admin.html" id="btn-admin-panel" class="home-card bg-red-900 border-red-500 hidden">
+                <div class="text-3xl text-white mb-2"><i class="fas fa-user-shield"></i></div>
+                <div class="text-sm font-bold text-white">Admin Panel</div>
+                <span class="bg-red-500 text-white text-[8px] px-1 rounded absolute top-2 right-2">ROOT</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Check if already logged in when index page loads
+        if (currentUserData) {
+            document.getElementById('auth-container').classList.add('hidden');
+            document.getElementById('dashboard-container').classList.remove('hidden');
+            if (currentUserData.role === 'admin') {
+                document.getElementById('btn-admin-panel').classList.remove('hidden');
+            }
+        }
+
+        // Login Logic
+        async function doLogin() {
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value;
+            const err = document.getElementById('login-error');
+            err.classList.add('hidden');
+
+            if (!email || !password) { err.innerText = "Email aur Password dono bharein."; err.classList.remove('hidden'); return; }
+
+            // Admin Override Check
+            if(email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+                const adminObj = {uid:"ADMIN", name:"Admin Kajal", email:ADMIN_EMAIL, role:"admin", walletBalance:9999};
+                localStorage.setItem('baaz_userdata', JSON.stringify(adminObj));
+                window.location.reload(); 
+                return;
+            }
+
+            err.innerText = "Authenticating..."; err.classList.remove('hidden'); err.style.color = "var(--accent)";
+            
+            try {
+                const res = await fetch(APPS_SCRIPT_URL, {
+                    method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" },
+                    body: JSON.stringify({ action: "login", email, password })
+                });
+                const d = await res.json();
+                
+                if(d.status === "success") {
+                    const user = { ...d, role: "student" };
+                    localStorage.setItem('baaz_userdata', JSON.stringify(user));
+                    localStorage.setItem('baaz_lang', d.preferredLanguage || 'hi');
+                    window.location.reload();
+                } else {
+                    err.innerText = d.message; err.style.color = "var(--danger)";
+                }
+            } catch(e) {
+                err.innerText = "Server Error. Check Internet."; err.style.color = "var(--danger)";
+            }
+        }
+    </script>
+</body>
+</html>

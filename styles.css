@@ -1,1 +1,26 @@
 
+:root {
+    --bg: #0a0f18; --card: #131a26; --text: #e2e8f0; --accent: #f59e0b;
+}
+body { background-color: var(--bg); color: var(--text); font-family: sans-serif; }
+
+.brand-gradient { background: linear-gradient(90deg, #f59e0b, #ef4444); -webkit-background-clip: text; color: transparent; }
+
+/* Dashboard Cards */
+.premium-card { background: var(--card); border: 1px solid #1e293b; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+.btn-danger-outline { border: 1px solid #ef4444; color: #ef4444; padding: 5px 15px; border-radius: 10px; font-weight: bold; }
+
+/* Home Grid */
+.home-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.home-card { 
+    background: #1e293b; padding: 30px; border-radius: 20px; 
+    display: flex; flex-direction: column; align-items: center; 
+    text-decoration: none; color: white; transition: 0.3s;
+}
+.home-card:hover { background: #334155; transform: scale(1.05); }
+.home-card i { margin-bottom: 10px; color: var(--accent); }
+.home-card span { font-size: 14px; font-weight: 800; }
+
+/* Auth Form */
+.input-field { width: 100%; padding: 15px; background: #1e293b; border-radius: 12px; margin-bottom: 10px; color: white; }
+.btn-accent { background: var(--accent); padding: 15px; border-radius: 12px; font-weight: 900; width: 100%; color: black; }
